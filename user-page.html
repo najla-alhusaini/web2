@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Page | HealthyBites</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">HealthyBites</div>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="Sign-Up.html">Sign-up</a>
+    <a href="User-page.html" class="active">User Page</a>
+    <a href="My-Recipes.html">My Recipes</a>
+    <a href="Add-Recipe.html">Add Recipe</a>
+    <a href="Admin-Page.html">Admin Page</a>
+  </nav>
+</header>
+
+<main class="user-page">
+
+  <h1>Welcome back, <span class="highlight">Sarah</span>!</h1>
+  <p class="subtitle">Manage your recipes and explore new healthy dishes.</p>
+
+  <div class="user-layout">
+
+    <!-- LEFT COLUMN -->
+    <div class="left-column">
+
+      <!-- Profile -->
+      <div class="card">
+        <h3>Your Profile</h3>
+        <div class="profile-info">
+          <div class="avatar"></div>
+          <div>
+            <strong>Sarah Johnson</strong>
+            <p>sarah.johnson@email.com</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistics -->
+      <div class="card">
+        <h3>Your Statistics</h3>
+
+        <div class="stat-box">
+          <p>My Recipes</p>
+          <strong>5</strong>
+        </div>
+
+        <div class="stat-box">
+          <p>Total Likes</p>
+          <strong>127</strong>
+        </div>
+      </div>
+
+      <!-- Favourite Recipes -->
+      <div class="card">
+        <h3>Favourite Recipes</h3>
+
+        <div class="fav-item">
+          <span>Green Detox Smoothie</span>
+        </div>
+
+        <div class="fav-item">
+          <span>Overnight Oats with Berries</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-column card">
+      <div class="recipes-header">
+        <h3>All Recipes</h3>
+
+        <div class="filter-box">
+          <select>
+            <option>All Categories</option>
+            <option>Salads</option>
+            <option>Main Dishes</option>
+            <option>Beverages</option>
+          </select>
+          <button>Filter</button>
+        </div>
+      </div>
+
+      <table class="recipes-table">
+        <tr>
+          <th>Recipe</th>
+          <th>Creator</th>
+          <th>Category</th>
+          <th>Likes</th>
+        </tr>
+
+        <tr>
+          <td>Mediterranean Quinoa Salad</td>
+          <td>Sarah Johnson</td>
+          <td>Salads</td>
+          <td>45</td>
+        </tr>
+
+        <tr>
+          <td>Green Detox Smoothie</td>
+          <td>Mike Chen</td>
+          <td>Beverages</td>
+          <td>32</td>
+        </tr>
+
+        <tr>
+          <td>Grilled Salmon with Herbs</td>
+          <td>Sarah Johnson</td>
+          <td>Main Dishes</td>
+          <td>78</td>
+        </tr>
+
+        <tr>
+          <td>Overnight Oats with Berries</td>
+          <td>Emma Wilson</td>
+          <td>Breakfast</td>
+          <td>56</td>
+        </tr>
+
+        <tr>
+          <td>Vegetable Stir Fry</td>
+          <td>Sarah Johnson</td>
+          <td>Main Dishes</td>
+          <td>41</td>
+        </tr>
+      </table>
+
+    </div>
+
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <p>© 2024 HealthyBites Recipe Sharing System. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
