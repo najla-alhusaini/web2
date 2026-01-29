@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Sign Up | HealthyBites</title>
   <link rel="stylesheet" href="style.css">
+   <script src="script.js"></script>
 </head>
 <body>
 
@@ -18,10 +19,10 @@
     <a href="home.html">Home</a>
     <a href="login.html">Login</a>
     <a href="Sign-Up.html" class="active">Sign-up</a>
-    <a href="#">User Page</a>
-    <a href="#">My Recipes</a>
-    <a href="#">Add Recipe</a>
-    <a href="#">Admin Page</a>
+    <a href="user-page.html">User Page</a>
+    <a href="My-Recipes.html">My Recipes</a>
+    <a href="Add-Recipe.html">Add Recipe</a>
+    <a href="Admin-Page.html">Admin Page</a>
   </nav>
 </header>
 
@@ -36,7 +37,7 @@
 <div class="profile-image">
 <img src="images/defaultUser.png" alt="user">
 </div>
-    <form action="user.html">
+    <form >
 	  <label>Profile Image</label>
    	 <input type="file" class="upload-img" >
 	 
@@ -52,7 +53,7 @@
       <label>Password</label>
       <input type="password" placeholder="********" required>
 
-      <button type="submit" class="btn-main">Create Account</button>
+      <button type="submit" class="btn-main" onclick="loginUser()">Create Account</button>
     </form>
 
     <p class="form-link">
