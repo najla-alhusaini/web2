@@ -2,8 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HealthyBites | Home</title>
+  <title>HealthyBites | My Recipes</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f7f9f8;
+            margin: 40px;
+            color: #333;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            margin: 0;
+        }
+
+        .page-header p {
+            margin: 5px 0 0;
+            color: #666;
+        }
+
+        .add-btn {
+            background-color: #2fa44f;
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            text-align: left;
+            padding: 15px;
+            background-color: #f1f3f2;
+            font-weight: bold;
+            color: #666;
+        }
+
+        td {
+            padding: 20px;
+            vertical-align: top;
+            border-top: 1px solid #eee;
+        }
+
+        .recipe-cell {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .recipe-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            background-color: #ddd; /* placeholder */
+        }
+
+        .recipe-title {
+            font-weight: bold;
+        }
+
+        .recipe-tag {
+            color: #2fa44f;
+            font-size: 14px;
+        }
+
+        ul {
+            padding-left: 18px;
+            margin: 0;
+        }
+
+        ol {
+            padding-left: 18px;
+            margin: 0;
+        }
+
+        .more {
+            color: #999;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .video-link {
+            color: #2fa44f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .likes {
+            color: #d9534f;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
@@ -22,6 +126,183 @@
     <a href="Admin-Page.html">Admin Page</a>
   </nav>
 </header>
+
+
+ 
+
+
+
+    <!-- Page Title -->
+    <div class="page-header">
+        <div>
+            <h1>My Recipes</h1>
+            <p>Manage and edit your recipe collection.</p>
+        </div>
+        <a href="Add-Recipe.html" class="add-btn">+ Add New Recipe</a>
+    </div>
+
+    <!-- Recipes Table -->
+    <table>
+        <tr>
+            <th>Recipe</th>
+            <th>Ingredients</th>
+            <th>Instructions</th>
+            <th>Video</th>
+            <th>Likes</th>
+			<th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+        <!-- Recipe 1 -->
+        <tr>
+            <td>
+			<a href="view-recipe.html" style="text-decoration: none; color: inherit;">
+                <div class="recipe-cell">
+                    <img src="images\mediterranean quinoa salad.jpg"" alt="mediterranean quinoa salad" class="recipe-img">
+                    <div>
+                        <div class="recipe-title">Mediterranean Quinoa Salad</div>
+                        <div class="recipe-tag">Salads</div>
+                    </div>
+                </div>
+				</a>
+				
+            </td>
+
+            <td>
+                <ul>
+                    <li>1 cup quinoa</li>
+                    <li>1 cucumber, diced</li>
+                    <li>1 cup cherry tomatoes, halved</li>
+                </ul>
+                <div class="more">+6 more</div>
+            </td>
+
+            <td>
+                <ol>
+                    <li>Rinse quinoa and cook according to package directions. Let cool.</li>
+                    <li>Chop all vegetables into bite-sized pieces.</li>
+                </ol>
+                <div class="more">+4 more steps</div>
+            </td>
+
+            <td>
+                <a href="#" class="video-link">▶ Watch</a>
+            </td>
+
+            <td class="likes">♡ 45</td>
+			<!-- Edit -->
+            <td>
+                <a href="edit-recipe.html" class="action-link edit">Edit</a>
+            </td>
+
+            <!-- Delete -->
+            <td>
+                <a href="my-recipes.html" class="action-link delete">Delete</a>
+            </td>
+
+        </tr>
+
+        <!-- Recipe 2 -->
+		
+        <tr>
+            <td>
+				<a href="view-recipe.html" style="text-decoration: none; color: inherit;">
+
+                <div class="recipe-cell">
+                    <img src="images\Grilled Salmon with Herbs.jpg"" alt="Grilled Salmon with Herbs" class="recipe-img">
+                    <div>
+                        <div class="recipe-title">Grilled Salmon with Herbs</div>
+                        <div class="recipe-tag">Main Dishes</div>
+                    </div>
+                </div>
+				</a>
+            </td>
+
+            <td>
+                <ul>
+                    <li>4 salmon fillets</li>
+                    <li>2 tbsp olive oil</li>
+                    <li>2 cloves garlic, minced</li>
+                </ul>
+                <div class="more">+4 more</div>
+            </td>
+
+            <td>
+                <ol>
+                    <li>Preheat grill to medium-high heat.</li>
+                    <li>Mix olive oil, garlic, and herbs in a bowl.</li>
+                </ol>
+                <div class="more">+4 more steps</div>
+            </td>
+
+            <td>
+                <a href="#" class="video-link">▶ Watch</a>
+            </td>
+
+            <td class="likes">♡ 78</td>
+			<!-- Edit -->
+            <td>
+                <a href="edit-recipe.html" class="action-link edit">Edit</a>
+            </td>
+
+            <!-- Delete -->
+            <td>
+                <a href="my-recipes.html" class="action-link delete">Delete</a>
+            </td>
+
+        </tr>
+
+        <!-- Recipe 3 -->
+        <tr>
+            <td>
+				<a href="view-recipe.html" style="text-decoration: none; color: inherit;" >
+
+                <div class="recipe-cell">
+                    <img src="images\Vegetable Stir Fry.jpg"" alt="Vegetable Stir Fry" class="recipe-img">
+                    <div>
+                        <div class="recipe-title">Vegetable Stir Fry</div>
+                        <div class="recipe-tag">Main Dishes</div>
+                    </div>
+                </div>
+				</a>
+            </td>
+
+            <td>
+                <ul>
+                    <li>2 cups broccoli florets</li>
+                    <li>1 red bell pepper</li>
+                    <li>1 cup snap peas</li>
+                </ul>
+                <div class="more">+5 more</div>
+            </td>
+
+            <td>
+                <ol>
+                    <li>Heat sesame oil in a wok over high heat.</li>
+                    <li>Add garlic and ginger, stir for 30 seconds.</li>
+                </ol>
+                <div class="more">+4 more steps</div>
+            </td>
+
+            <td>
+                <a href="#" class="video-link">▶ Watch</a>
+            </td>
+
+            <td class="likes">♡ 41</td>
+			<!-- Edit -->
+            <td>
+                <a href="edit-recipe.html" class="action-link edit">Edit</a>
+            </td>
+
+            <!-- Delete -->
+            <td>
+                <a href="my-recipes.html" class="action-link delete">Delete</a>
+            </td>
+
+        </tr>
+		
+
+    </table>
 
 
 
