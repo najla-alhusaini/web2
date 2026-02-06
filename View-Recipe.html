@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mediterranean Quinoa Salad | Healthy Bites</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo-img">
+        <img src="images/logo.png" alt="Healthy Bites Logo" class="logo-image">
+      </div>
+      <div class="logo">
+        <h2>Healthy Bites</h2>
+      </div>
+      <div class="nav-links">
+        <a href="home.html">
+          <span class="nav-icon">🏠</span> Home
+        </a>
+        <a href="my_recipes.html">
+          <span class="nav-icon">📖</span> My Recipes
+        </a>
+        <a href="add_recipe.html">
+          <span class="nav-icon">➕</span> Add Recipe
+        </a>
+        <div class="user-dropdown">
+          <button class="user-icon dropbtn">
+            <span class="user-icon-symbol">👤</span>
+            <span class="user-initials">JD</span>
+          </button>
+          <div class="dropdown-content">
+            <a href="user_page.html">
+              <span class="dropdown-icon">👨‍💼</span> User Page
+            </a>
+            <a href="admin_page.html">
+              <span class="dropdown-icon">⚙️</span> Admin Page
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="logout-btn">
+              <span class="dropdown-icon">🚪</span> Log Out
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Recipe Hero Section -->
+    <section class="recipe-hero">
+      <div class="recipe-hero-content">
+        <h1 class="recipe-title">Mediterranean Quinoa Salad</h1>
+        <p class="recipe-subtitle">A fresh and healthy salad with Mediterranean flavors</p>
+        <div class="recipe-stats">
+          <div class="stat-item">
+            <span class="stat-icon">⏱️</span>
+            <span>25 min</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">🍽️</span>
+            <span>4 servings</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">📈</span>
+            <span>Easy</span>
+          </div>
+        </div>
+      </div>
+	    <img src="images/Mediterranean Quinoa Salad.jpg" alt="Mediterranean Quinoa Salad">
+    </section>
+
+    <!-- Recipe Content -->
+    <div class="recipe-content-wrapper">
+      <!-- Left Column - Recipe Details -->
+      <div class="recipe-main">
+        <!-- Recipe Meta Info -->
+        <div class="recipe-meta">
+          <div class="creator-info">
+            <div class="creator-image-wrapper">
+              <img src="images\sara.jpg" alt="Recipe Creator" class="creator-image">
+              <div class="creator-badge">🏆</div>
+            </div>
+            <div class="creator-details">
+              <p class="creator-label">Recipe Creator</p>
+              <p class="creator-name">Sarah Miller</p>
+              <p class="creator-tag">Nutrition Expert</p>
+            </div>
+          </div>
+          
+          <div class="meta-divider"></div>
+          
+          <div class="meta-item">
+            <span class="meta-label"><span class="meta-icon">🏷️</span> Category</span>
+            <span class="meta-value">Salads</span>
+          </div>
+          
+          <div class="meta-divider"></div>
+          
+          <div class="meta-item">
+            <span class="meta-label"><span class="meta-icon">📅</span> Added</span>
+            <span class="meta-value">February 10, 2024</span>
+          </div>
+        </div>
+
+        <!-- Recipe Description -->
+        <section class="recipe-description">
+          <h3><span class="description-icon">ℹ️</span> About This Recipe</h3>
+          <p>This Mediterranean quinoa salad is packed with fresh vegetables, herbs, and a zesty lemon dressing. It's perfect for meal prep, picnics, or as a healthy side dish. High in protein and fiber, it's both delicious and nutritious.</p>
+        </section>
+
+        <!-- Ingredients Section -->
+        <section class="ingredients-section">
+          <h3 class="section-title"><span class="section-icon">🛒</span> Ingredients</h3>
+          <p class="section-subtitle">For 4 servings</p>
+          
+          <ul class="ingredients-list">
+            <li>
+              <div class="ingredient-checkbox">
+                <input type="checkbox" id="ing1">
+                <label for="ing1"></label>
+              </div>
+              <div class="ingredient-content">
+                <span class="ingredient-name">Quinoa</span>
+                <span class="ingredient-quantity">1 cup</span>
+              </div>
+              <div class="ingredient-note">Rinsed well</div>
+            </li>
+            <li>
+              <div class="ingredient-checkbox">
+                <input type="checkbox" id="ing2">
+                <label for="ing2"></label>
+              </div>
+              <div class="ingredient-content">
+                <span class="ingredient-name">Cucumber</span>
+                <span class="ingredient-quantity">1 piece</span>
+              </div>
+              <div class="ingredient-note">Diced</div>
+            </li>
+            <li>
+              <div class="ingredient-checkbox">
+                <input type="checkbox" id="ing3">
+                <label for="ing3"></label>
+              </div>
+              <div class="ingredient-content">
+                <span class="ingredient-name">Cherry Tomatoes</span>
+                <span class="ingredient-quantity">1 cup</span>
+              </div>
+              <div class="ingredient-note">Halved</div>
+            </li>
+            <li>
+              <div class="ingredient-checkbox">
+                <input type="checkbox" id="ing4">
+                <label for="ing4"></label>
+              </div>
+              <div class="ingredient-content">
+                <span class="ingredient-name">Red Onion</span>
+                <span class="ingredient-quantity">1/2 piece</span>
+              </div>
+              <div class="ingredient-note">Finely chopped</div>
+            </li>
+            <li>
+              <div class="ingredient-checkbox">
+                <input type="checkbox" id="ing5">
+                <label for="ing5"></label>
+              </div>
+              <div class="ingredient-content">
+                <span class="ingredient-name">Kalamata Olives</span>
+                <span class="ingredient-quantity">1/2 cup</span>
+              </div>
+              <div class="ingredient-note">Pitted and halved</div>
+            </li>
+            <li>
+              <div class="ingredient-checkbox">
+                <input type="checkbox" id="ing6">
+                <label for="ing6"></label>
+              </div>
+              <div class="ingredient-content">
+                <span class="ingredient-name">Feta Cheese</span>
+                <span class="ingredient-quantity">100g</span>
+              </div>
+              <div class="ingredient-note">Crumbled</div>
+            </li>
+            <li>
+              <div class="ingredient-checkbox">
+                <input type="checkbox" id="ing7">
+                <label for="ing7"></label>
+              </div>
+              <div class="ingredient-content">
+                <span class="ingredient-name">Fresh Parsley</span>
+                <span class="ingredient-quantity">1/4 cup</span>
+              </div>
+              <div class="ingredient-note">Chopped</div>
+            </li>
+            <li>
+              <div class="ingredient-checkbox">
+                <input type="checkbox" id="ing8">
+                <label for="ing8"></label>
+              </div>
+              <div class="ingredient-content">
+                <span class="ingredient-name">Lemon Juice</span>
+                <span class="ingredient-quantity">3 tbsp</span>
+              </div>
+            </li>
+          </ul>
+          
+          <!-- Serving Info -->
+          <div class="serving-info">
+            <p><strong>📝 Note:</strong> This recipe serves 4 people. Can be stored in fridge for 3 days.</p>
+          </div>
+        </section>
+
+        <!-- Instructions Section -->
+        <section class="instructions-section">
+          <h3 class="section-title"><span class="section-icon">📝</span> Instructions</h3>
+          
+          <div class="instructions-steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Cook the Quinoa</h4>
+                <p>Rinse quinoa thoroughly under cold water. Cook according to package directions (usually 1 cup quinoa to 2 cups water). Let cool completely.</p>
+                <div class="step-tip">
+                  <span class="tip-icon">💡</span>
+                  <strong>Tip:</strong> For extra flavor, cook quinoa in vegetable broth instead of water.
+                </div>
+              </div>
+            </div>
+            
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Prepare Vegetables</h4>
+                <p>Chop cucumber, cherry tomatoes, red onion, and parsley into bite-sized pieces. Pit and halve the olives.</p>
+              </div>
+            </div>
+            
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Make the Dressing</h4>
+                <p>In a small bowl, whisk together lemon juice, olive oil, minced garlic, salt, and pepper until emulsified.</p>
+              </div>
+            </div>
+            
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Combine Ingredients</h4>
+                <p>In a large bowl, combine cooled quinoa, chopped vegetables, olives, and crumbled feta cheese. Pour dressing over and toss gently to combine.</p>
+              </div>
+            </div>
+            
+            <div class="step">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h4>Chill and Serve</h4>
+                <p>Cover and refrigerate for at least 30 minutes to allow flavors to meld. Garnish with extra parsley before serving.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Prep Info -->
+          <div class="baking-info">
+            <p><span class="baking-icon">⏱️</span> <strong>Prep Time:</strong> 20 minutes | <strong>Chill Time:</strong> 30 minutes</p>
+          </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+          <h3 class="section-title"><span class="section-icon">🎬</span> Recipe Video</h3>
+          <div class="video-placeholder">
+            <div class="video-thumbnail">
+              <img src="images/saladpic.avif">
+              <div class="play-button">
+                <span class="play-icon">▶️</span>
+              </div>
+            </div>
+            <div class="video-info">
+              <h4>Step-by-Step Video Tutorial</h4>
+              <p>Watch Sarah prepare this refreshing Mediterranean quinoa salad with expert tips.</p>
+              <a href="https://youtube.com/" target="_blank" class="video-link-btn">
+                <span class="youtube-icon">📺</span> Watch Full Video on YouTube
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Comments Section -->
+        <section class="comments-section">
+          <h3 class="section-title"><span class="section-icon">💬</span> Comments <span class="comment-count">(8)</span></h3>
+          
+          <div class="comments-list">
+            <div class="comment">
+              <div class="comment-avatar">
+                <img src="images/boycomment.jpg" alt="Ahmed">
+              </div>
+              <div class="comment-content">
+                <div class="comment-header">
+                  <span class="comment-author">Ahmed Alharbi</span>
+                  <span class="comment-date">5 days ago</span>
+                  <div class="comment-rating">
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                  </div>
+                </div>
+                <p class="comment-text">Perfect for meal prep! I made this for my lunches this week and it held up beautifully. Added chickpeas for extra protein. Delicious!</p>
+                <div class="comment-actions">
+                  <button class="comment-like"><span class="like-icon">👍</span> 15</button>
+                  <button class="comment-reply"><span class="reply-icon">↩️</span> Reply</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="comment">
+              <div class="comment-avatar">
+                <img src="images/girlcomment.jpg" alt="Asayel">
+              </div>
+              <div class="comment-content">
+                <div class="comment-header">
+                  <span class="comment-author">Asayel Ameen</span>
+                  <span class="comment-date">2 weeks ago</span>
+                  <div class="comment-rating">
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">☆</span>
+                  </div>
+                </div>
+                <p class="comment-text">Brought this to a potluck and everyone loved it! So fresh and flavorful. The lemon dressing really makes it special.</p>
+                <div class="comment-actions">
+                  <button class="comment-like"><span class="like-icon">👍</span> 22</button>
+                  <button class="comment-reply"><span class="reply-icon">↩️</span> Reply</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Add Comment Form -->
+          <div class="add-comment">
+            <h4>Leave a Comment</h4>
+            <div class="comment-form">
+              <div class="comment-avatar current-user">
+                <img src="images/defaultUser.png" alt="You">
+              </div>
+              <div class="comment-input-area">
+                <div class="rating-input">
+                  <span>Your Rating:</span>
+                  <div class="star-rating">
+                    <span class="star" data-rating="1">☆</span>
+                    <span class="star" data-rating="2">☆</span>
+                    <span class="star" data-rating="3">☆</span>
+                    <span class="star" data-rating="4">☆</span>
+                    <span class="star" data-rating="5">☆</span>
+                  </div>
+                </div>
+                <textarea placeholder="Share your experience with this recipe..."></textarea>
+                <div class="comment-actions-bar">
+                  <button class="submit-comment-btn">
+                    <span class="send-icon">📤</span> Post Comment
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Column - Sidebar -->
+      <aside class="recipe-sidebar">
+        <!-- Action Buttons -->
+        <div class="action-card">
+          <button class="action-btn favorite-btn">
+            <span class="action-icon">❤️</span> Add to Favorites
+          </button>
+          <button class="action-btn like-btn">
+            <span class="action-icon">👍</span> Like <span class="like-count">(45)</span>
+          </button>
+          <button class="action-btn report-btn">
+            <span class="action-icon">🚩</span> Report
+          </button>
+        </div>
+
+        <!-- Nutrition Card -->
+        <div class="nutrition-card">
+          <h3><span class="nutrition-icon">🍎</span> Nutrition Facts</h3>
+          <div class="nutrition-info">
+            <div class="nutrition-item">
+              <span class="nutrition-label">Calories</span>
+              <span class="nutrition-value">280<span class="nutrition-unit">kcal</span></span>
+            </div>
+            <div class="nutrition-item">
+              <span class="nutrition-label">Carbs</span>
+              <span class="nutrition-value">35<span class="nutrition-unit">g</span></span>
+            </div>
+            <div class="nutrition-item">
+              <span class="nutrition-label">Protein</span>
+              <span class="nutrition-value">10<span class="nutrition-unit">g</span></span>
+            </div>
+            <div class="nutrition-item">
+              <span class="nutrition-label">Fat</span>
+              <span class="nutrition-value">12<span class="nutrition-unit">g</span></span>
+            </div>
+            <div class="nutrition-item">
+              <span class="nutrition-label">Fiber</span>
+              <span class="nutrition-value">6<span class="nutrition-unit">g</span></span>
+            </div>
+          </div>
+          <p class="nutrition-note">Per serving. Values are approximate.</p>
+        </div>
+
+        <!-- Tags Card -->
+        <div class="tags-card">
+          <h3><span class="tags-icon">🏷️</span> Recipe Tags</h3>
+          <div class="tags-list">
+            <span class="tag">Salad</span>
+            <span class="tag">Healthy</span>
+            <span class="tag">Mediterranean</span>
+            <span class="tag">Vegetarian</span>
+            <span class="tag">Quinoa</span>
+            <span class="tag">Lunch</span>
+            <span class="tag">Meal Prep</span>
+            <span class="tag">Summer</span>
+          </div>
+        </div>
+
+        <!-- Similar Recipes -->
+        <div class="similar-recipes">
+          <h3><span class="similar-icon">🍴</span> You Might Also Like</h3>
+          <div class="similar-recipe">
+            <img src="images/Grilled Salmon with Herbs.jpg">
+            <div class="similar-recipe-info">
+              <h4>Grilled Salmon</h4>
+              <p>Grilled Salmon with Herbs</p>
+              <div class="similar-recipe-meta">
+                <span><span class="meta-icon">⏱️</span> 15 min</span>
+                <span><span class="meta-icon">📈</span> Easy</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="similar-recipe">
+            <img src="images/Vegetable Stir Fry.jpg" alt="Tabbouleh">
+            <div class="similar-recipe-info">
+              <h4>Classic Salad<</h4>
+              <p>Vegetable Stir Fry</p>
+              <div class="similar-recipe-meta">
+                <span><span class="meta-icon">⏱️</span> 20 min</span>
+                <span><span class="meta-icon">📈</span> Easy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <div class="footer-logo-wrapper">
+          <span class="footer-logo-icon">🥗</span>
+          <h3>Healthy Bites</h3>
+        </div>
+        <p>Delicious recipes for a healthier lifestyle</p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4><span class="footer-icon">🔍</span> Explore</h4>
+          <a href="#"><span class="link-icon">📋</span> All Recipes</a>
+          <a href="#"><span class="link-icon">📁</span> Categories</a>
+          <a href="#"><span class="link-icon">🍂</span> Seasonal Picks</a>
+          <a href="#"><span class="link-icon">📅</span> Meal Plans</a>
+        </div>
+        
+        <div class="footer-column">
+          <h4><span class="footer-icon">👥</span> Community</h4>
+          <a href="#"><span class="link-icon">💬</span> Forums</a>
+          <a href="#"><span class="link-icon">🏆</span> Challenges</a>
+          <a href="#"><span class="link-icon">📝</span> Blog</a>
+          <a href="#"><span class="link-icon">⭐</span> Contributors</a>
+        </div>
+        
+        <div class="footer-column">
+          <h4><span class="footer-icon">🛟</span> Support</h4>
+          <a href="#"><span class="link-icon">❓</span> Help Center</a>
+          <a href="#"><span class="link-icon">📞</span> Contact Us</a>
+          <a href="#"><span class="link-icon">🔒</span> Privacy Policy</a>
+          <a href="#"><span class="link-icon">📄</span> Terms of Service</a>
+        </div>
+        
+        <div class="footer-column">
+          <h4><span class="footer-icon">📡</span> Connect</h4>
+          <div class="social-links">
+            <a href="#" class="social-link facebook" title="Facebook">
+              <span class="social-icon">📘</span>
+            </a>
+            <a href="#" class="social-link instagram" title="Instagram">
+              <span class="social-icon">📸</span>
+            </a>
+            <a href="#" class="social-link pinterest" title="Pinterest">
+              <span class="social-icon">📌</span>
+            </a>
+            <a href="#" class="social-link youtube" title="YouTube">
+              <span class="social-icon">📺</span>
+            </a>
+          </div>
+          <div class="newsletter">
+            <p><span class="newsletter-icon">✉️</span> Subscribe for weekly recipes</p>
+            <div class="newsletter-input">
+              <input type="email" placeholder="Your email address">
+              <button>
+                <span class="send-icon">🚀</span>
+                <span class="send-text">Subscribe</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2026 Healthy Bites | All rights reserved</p>
+      <p class="made-with-love">
+        <span class="heart-icon">❤️</span> Made with love for food lovers everywhere
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

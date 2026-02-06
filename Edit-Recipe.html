@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Mediterranean Quinoa Salad | Healthy Bites</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+<header>
+  <nav>
+    <div class="logo-img">
+      <img src="images\logo.png" alt="Healthy Bites Logo" class="logo-image">
+    </div>
+    <div class="logo">
+      <h2>Healthy Bites</h2>
+    </div>
+    <div class="nav-links">
+      <a href="home.html">
+        <span class="nav-icon">🏠</span> Home
+      </a>
+      <a href="My-Recipes.html">
+        <span class="nav-icon">📖</span> My Recipes
+      </a>
+      <a href="Add_Recipe.html">
+        <span class="nav-icon">➕</span> Add Recipe
+      </a>
+      <div class="user-dropdown">
+        <button class="user-icon dropbtn">
+          <span class="user-icon-symbol">👤</span>
+        </button>
+        <div class="dropdown-content">
+          <a href="user-page.html">
+            <span class="dropdown-icon">👨‍💼</span> User Page
+          </a>
+          <a href="Admin-page.html">
+            <span class="dropdown-icon">⚙️</span> Admin Page
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="logout-btn">
+            <span class="dropdown-icon">🚪</span> Log Out
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="edit-recipe-header">
+      <h1>Edit Mediterranean Quinoa Salad</h1>
+      <a href="My-Recipes.html" class="back-btn">← Back to My Recipes</a>
+    </div>
+
+    <div class="recipe-form-container">
+      <form id="editRecipeForm">
+        <!-- Recipe Name -->
+        <div class="form-group">
+          <label for="recipeName">Recipe Name</label>
+          <input type="text" id="recipeName" name="recipeName" value="Mediterranean Quinoa Salad" required>
+        </div>
+
+        <!-- Recipe Category -->
+        <div class="form-group">
+          <label for="recipeCategory">Category</label>
+          <select id="recipeCategory" name="recipeCategory" required>
+            <option value="">Select Category</option>
+            <option value="salad" selected>Salad</option>
+            <option value="dessert">Dessert</option>
+            <option value="main">Main Course</option>
+            <option value="appetizer">Appetizer</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="drink">Drinks</option>
+          </select>
+        </div>
+
+        <!-- Recipe Description -->
+        <div class="form-group">
+          <label for="recipeDescription">Description</label>
+          <textarea id="recipeDescription" name="recipeDescription" rows="4" required>A fresh and healthy salad with Mediterranean flavors, perfect for summer lunches or as a light dinner. Packed with quinoa, fresh vegetables, olives, and feta cheese.</textarea>
+        </div>
+
+        <!-- Recipe Photo -->
+        <div class="form-group">
+          <label>Recipe Photo</label>
+          <div class="image-upload-container">
+            <div class="current-image">
+              <img src="images\mediterranean quinoa salad.jpg" alt="Mediterranean Quinoa Salad" id="currentImage">
+              <p class="image-label">Current Photo</p>
+            </div>
+            <div class="upload-new">
+              <div class="upload-box" id="uploadArea">
+                <p>Click to upload new photo</p>
+                <input type="file" id="recipeImage" name="recipeImage"  style="display: none;">
+              </div>
+              <p class="upload-hint">Upload JPG, PNG or GIF (Max 5MB)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ingredients Section -->
+        <div class="form-group">
+          <div class="form-section-header">
+            <label>Ingredients</label>
+            <button type="button" class="add-item-btn" id="addIngredientBtn">+ Add Ingredient</button>
+          </div>
+          <div class="dynamic-items-list" id="ingredientsList">
+            <div class="item-row">
+              <input type="text" class="item-name" placeholder="Ingredient name" value="Quinoa" required>
+              <input type="text" class="item-quantity" placeholder="Quantity" value="1 cup" required>
+              <button type="button" class="remove-item-btn">X</button>
+            </div>
+            <div class="item-row">
+              <input type="text" class="item-name" placeholder="Ingredient name" value="Cucumber" required>
+              <input type="text" class="item-quantity" placeholder="Quantity" value="1 piece" required>
+              <button type="button" class="remove-item-btn">X</button>
+            </div>
+            <div class="item-row">
+              <input type="text" class="item-name" placeholder="Ingredient name" value="Cherry Tomatoes" required>
+              <input type="text" class="item-quantity" placeholder="Quantity" value="1 cup" required>
+              <button type="button" class="remove-item-btn">X</button>
+            </div>
+            <div class="item-row">
+              <input type="text" class="item-name" placeholder="Ingredient name" value="Red Onion" required>
+              <input type="text" class="item-quantity" placeholder="Quantity" value="1/2 piece" required>
+              <button type="button" class="remove-item-btn">X</button>
+            </div>
+            <div class="item-row">
+              <input type="text" class="item-name" placeholder="Ingredient name" value="Kalamata Olives" required>
+              <input type="text" class="item-quantity" placeholder="Quantity" value="1/2 cup" required>
+              <button type="button" class="remove-item-btn">X</button>
+            </div>
+            <div class="item-row">
+              <input type="text" class="item-name" placeholder="Ingredient name" value="Feta Cheese" required>
+              <input type="text" class="item-quantity" placeholder="Quantity" value="100g" required>
+              <button type="button" class="remove-item-btn">X</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instructions Section -->
+        <div class="form-group">
+          <div class="form-section-header">
+            <label>Instructions</label>
+            <button type="button" class="add-item-btn" id="addInstructionBtn">+ Add Step</button>
+          </div>
+          <div class="dynamic-items-list" id="instructionsList">
+            <div class="instruction-row">
+              <div class="step-number">1</div>
+              <textarea class="instruction-step" placeholder="Instruction step" required>Rinse quinoa and cook according to package directions. Let cool.</textarea>
+              <button type="button" class="remove-item-btn">X</button>
+            </div>
+            <div class="instruction-row">
+              <div class="step-number">2</div>
+              <textarea class="instruction-step" placeholder="Instruction step" required>Chop all vegetables into bite-sized pieces.</textarea>
+              <button type="button" class="remove-item-btn">X</button>
+            </div>
+            <div class="instruction-row">
+              <div class="step-number">3</div>
+              <textarea class="instruction-step" placeholder="Instruction step" required>Combine cooled quinoa with chopped vegetables, olives, and feta cheese.</textarea>
+              <button type="button" class="remove-item-btn">X</button>
+            </div>
+            <div class="instruction-row">
+              <div class="step-number">4</div>
+              <textarea class="instruction-step" placeholder="Instruction step" required>In a small bowl, whisk together lemon juice, olive oil, salt, and pepper for the dressing.</textarea>
+              <button type="button" class="remove-item-btn">X</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video URL -->
+        <div class="form-group">
+          <label for="recipeVideo">Video URL (Optional)</label>
+          <input type="url" id="recipeVideo" name="recipeVideo" placeholder="https://youtube.com/" value="https://youtube.com/">
+          <p class="form-hint">Add a link to a YouTube video or any other video platform.</p>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button type="button" class="cancel-btn" onclick="window.location.href='Mt-recipes.html'">Cancel</button>
+          <button type="submit" class="submit-btn">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">
+      <div class="footer-logo-wrapper">
+        <span class="footer-logo-icon">🥗</span>
+        <h3>Healthy Bites</h3>
+      </div>
+      <p>Delicious recipes for a healthier lifestyle</p>
+    </div>
+    
+    <div class="footer-links">
+      <div class="footer-column">
+        <h4><span class="footer-icon">🔍</span> Explore</h4>
+        <a href="#"><span class="link-icon">📋</span> All Recipes</a>
+        <a href="#"><span class="link-icon">📁</span> Categories</a>
+        <a href="#"><span class="link-icon">🍂</span> Seasonal Picks</a>
+        <a href="#"><span class="link-icon">📅</span> Meal Plans</a>
+      </div>
+      
+      <div class="footer-column">
+        <h4><span class="footer-icon">👥</span> Community</h4>
+        <a href="#"><span class="link-icon">💬</span> Forums</a>
+        <a href="#"><span class="link-icon">🏆</span> Challenges</a>
+        <a href="#"><span class="link-icon">📝</span> Blog</a>
+        <a href="#"><span class="link-icon">⭐</span> Contributors</a>
+      </div>
+      
+      <div class="footer-column">
+        <h4><span class="footer-icon">🛟</span> Support</h4>
+        <a href="#"><span class="link-icon">❓</span> Help Center</a>
+        <a href="#"><span class="link-icon">📞</span> Contact Us</a>
+        <a href="#"><span class="link-icon">🔒</span> Privacy Policy</a>
+        <a href="#"><span class="link-icon">📄</span> Terms of Service</a>
+      </div>
+      
+      <div class="footer-column">
+        <h4><span class="footer-icon">📡</span> Connect</h4>
+        <div class="social-links">
+          <a href="#" class="social-link facebook" title="Facebook">
+            <span class="social-icon">📘</span>
+          </a>
+          <a href="#" class="social-link instagram" title="Instagram">
+            <span class="social-icon">📸</span>
+          </a>
+          <a href="#" class="social-link pinterest" title="Pinterest">
+            <span class="social-icon">📌</span>
+          </a>
+          <a href="#" class="social-link youtube" title="YouTube">
+            <span class="social-icon">📺</span>
+          </a>
+        </div>
+        <div class="newsletter">
+          <p><span class="newsletter-icon">✉️</span> Subscribe for weekly recipes</p>
+          <div class="newsletter-input">
+            <input type="email" placeholder="Your email address">
+            <button>
+              <span class="send-icon">🚀</span>
+              <span class="send-text">Subscribe</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2026 Healthy Bites | All rights reserved</p>
+    <p class="made-with-love">
+      <span class="heart-icon">❤️</span> Made with love for food lovers everywhere
+    </p>
+  </div>
+</footer>
+ <script src="edit_recipe.js"></script>
+</body>
+</html>
