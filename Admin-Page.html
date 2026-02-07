@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Page | Healthy Bites</title>
+  <link rel="stylesheet" href="styles1.css">
+</head>
+<body class="admin-body">
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo-img">
+        <img src="images\logo.png" alt="Healthy Bites Logo" class="logo-image">
+      </div>
+      <div class="logo">
+        <h2>Healthy Bites</h2>
+      </div>
+      <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="my_recipes.html">My Recipes</a>
+        <a href="add_recipe.html">Add Recipe</a>
+        <a href="user_page.html" class="user-icon">U</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="admin-container">
+    <section class="admin-info">
+      <h1>Welcome, Steve!</h1>
+      <p>Manage recipe reports and user accounts.</p>
+      
+      <div class="admin-details">
+        <img src="images/admin.jpg" alt="Admin Avatar" class="admin-avatar">
+        <div class="admin-info-text">
+          <h2>Admin Steve</h2>
+          <p>Steve@healthybites.com</p>
+          <p><strong>Administrator</strong></p>
+        </div>
+      </div>
+    </section>
+	
+	<section class="user-count-boxes">
+  <div class="user-count-box">
+    <h3>Blocked Users</h3>
+    <p id="blocked-users-count">2</p>
+  </div>
+  <div class="user-count-box">
+    <h3>Pending Reports</h3>
+    <p id="pending-reports-count">2</p>
+  </div>
+</section>
+
+    <section class="pending-reports">
+      <h2>Pending Recipe Reports</h2>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Recipe</th>
+            <th>Creator</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="view_recipe.html">Mediterranean Quinoa Salad</a></td>
+            <td>
+              <div class="creator-info">
+                <img src="images/mike.jpg" alt="Mike's Avatar" class="creator-avatar"> Mike Chen
+              </div>
+            </td>
+            <td>
+              <select class="action-select">
+                <option>Select action</option>
+                <option>Block User</option>
+                <option>Dismiss Report</option>
+              </select>
+              <button class="action-btn">Apply</button>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="view_recipe.html">Grilled Salmon with Herbs</a></td>
+            <td>
+              <div class="creator-info">
+                <img src="images/emma.jpg" alt="Emma's Avatar" class="creator-avatar"> Emma Wilson
+              </div>
+            </td>
+            <td>
+              <select class="action-select">
+                <option>Select action</option>
+                <option>Block User</option>
+                <option>Dismiss Report</option>
+              </select>
+              <button class="action-btn">Apply</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="blocked-users">
+      <h2>Blocked Users</h2>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>James Smith</td>
+            <td>james.smith@email.com</td>
+          </tr>
+          <tr>
+            <td>Anna Brown</td>
+            <td>anna.brown@email.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sign-out">
+      <a href="homepage.html" class="sign-out-btn">Sign Out</a>
+    </section>
+  </div>
+
+   <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <div class="footer-logo-wrapper">
+          <span class="footer-logo-icon">🥗</span>
+          <h3>Healthy Bites</h3>
+        </div>
+        <p>Delicious recipes for a healthier lifestyle</p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4><span class="footer-icon">🔍</span> Explore</h4>
+          <a href="#"><span class="link-icon">📋</span> All Recipes</a>
+          <a href="#"><span class="link-icon">📁</span> Categories</a>
+          <a href="#"><span class="link-icon">🍂</span> Seasonal Picks</a>
+          <a href="#"><span class="link-icon">📅</span> Meal Plans</a>
+        </div>
+        
+        <div class="footer-column">
+          <h4><span class="footer-icon">👥</span> Community</h4>
+          <a href="#"><span class="link-icon">💬</span> Forums</a>
+          <a href="#"><span class="link-icon">🏆</span> Challenges</a>
+          <a href="#"><span class="link-icon">📝</span> Blog</a>
+          <a href="#"><span class="link-icon">⭐</span> Contributors</a>
+        </div>
+        
+        <div class="footer-column">
+          <h4><span class="footer-icon">🛟</span> Support</h4>
+          <a href="#"><span class="link-icon">❓</span> Help Center</a>
+          <a href="#"><span class="link-icon">📞</span> Contact Us</a>
+          <a href="#"><span class="link-icon">🔒</span> Privacy Policy</a>
+          <a href="#"><span class="link-icon">📄</span> Terms of Service</a>
+        </div>
+        
+        <div class="footer-column">
+          <h4><span class="footer-icon">📡</span> Connect</h4>
+          <div class="social-links">
+            <a href="#" class="social-link facebook" title="Facebook">
+              <span class="social-icon">📘</span>
+            </a>
+            <a href="#" class="social-link instagram" title="Instagram">
+              <span class="social-icon">📸</span>
+            </a>
+            <a href="#" class="social-link pinterest" title="Pinterest">
+              <span class="social-icon">📌</span>
+            </a>
+            <a href="#" class="social-link youtube" title="YouTube">
+              <span class="social-icon">📺</span>
+            </a>
+          </div>
+          <div class="newsletter">
+            <p><span class="newsletter-icon">✉️</span> Subscribe for weekly recipes</p>
+            <div class="newsletter-input">
+              <input type="email" placeholder="Your email address">
+              <button>
+                <span class="send-icon">🚀</span>
+                <span class="send-text">Subscribe</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2026 Healthy Bites | All rights reserved</p>
+      <p class="made-with-love">
+        <span class="heart-icon">❤️</span> Made with love for food lovers everywhere
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
