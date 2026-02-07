@@ -353,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Simulating the 'Sign Out' functionality
   document.querySelector('.sign-out-btn')?.addEventListener('click', () => {
-    window.location.href = "homepage.html";  // Redirect to homepage
+    window.location.href = "home.html";  // Redirect to homepage
   });
 
   // Function to dynamically update the admin info 
@@ -366,3 +366,118 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector(".admin-info-text h2").textContent = Admin ${adminInfo.name};
   document.querySelector(".admin-info-text p").textContent = adminInfo.email;
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  // Add Ingredient Button click event
+  const addIngredientBtn = document.getElementById("addIngredientBtn");
+  const ingredientsList = document.getElementById("ingredientsList");
+
+  addIngredientBtn.addEventListener("click", function () {
+    const ingredientRow = document.createElement("div");
+    ingredientRow.classList.add("item-row");
+
+    ingredientRow.innerHTML = `
+      <input type="text" class="item-name" placeholder="Ingredient name" required>
+      <input type="text" class="item-quantity" placeholder="Quantity" required>
+      <button type="button" class="remove-item-btn">X</button>
+    `;
+
+    // Append new ingredient row
+    ingredientsList.appendChild(ingredientRow);
+
+    // Add event listener to remove button
+    const removeBtn = ingredientRow.querySelector(".remove-item-btn");
+    removeBtn.addEventListener("click", function () {
+      ingredientRow.remove();
+    });
+  });
+
+  // Add Instruction Step Button click event
+  const addInstructionBtn = document.getElementById("addInstructionBtn");
+  const instructionsList = document.getElementById("instructionsList");
+
+  addInstructionBtn.addEventListener("click", function () {
+    const instructionRow = document.createElement("div");
+    instructionRow.classList.add("instruction-row");
+
+    const stepsCount = instructionsList.querySelectorAll('.instruction-row').length + 1;
+
+    instructionRow.innerHTML = `
+      <div class="step-number">${stepsCount}</div>
+      <textarea class="instruction-step" placeholder="Instruction step" required></textarea>
+      <button type="button" class="remove-item-btn">X</button>
+    `;
+
+    // Append new instruction row
+    instructionsList.appendChild(instructionRow);
+
+    // Add event listener to remove button
+    const removeBtn = instructionRow.querySelector(".remove-item-btn");
+    removeBtn.addEventListener("click", function () {
+      instructionRow.remove();
+      updateStepNumbers();
+    });
+  });
+
+  // Update instruction step numbers after a row is removed
+  function updateStepNumbers() {
+    const stepNumbers = instructionsList.querySelectorAll('.step-number');
+    stepNumbers.forEach((step, index) => {
+      step.textContent = index + 1;
+    });
+  }
+
+  // Photo upload functionality
+  const recipeImage = document.getElementById("recipeImage");
+  const imagePlaceholder = document.getElementById("Image-Placeholder");
+  const uploadArea = document.getElementById("uploadArea");
+
+  uploadArea.addEventListener("click", function () {
+    recipeImage.click();
+  });
+
+  recipeImage.addEventListener("change", function () {
+    const file = recipeImage.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        imagePlaceholder.src = e.target.result;
+        imagePlaceholder.style.display = "block"; // Show image
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Form submission
+  const recipeForm = document.getElementById("editRecipeForm");
+
+  recipeForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Gather form data
+    const formData = new FormData(recipeForm);
+    formData.append("recipeImage", recipeImage.files[0]);
+
+   
+    fetch("/submit_recipe", {
+      method: "POST",
+      body: formData,
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          // Redirect to 'My Recipes' page after successful submission
+          window.location.href = "My_Recipes.html";
+        } else {
+          alert("There was an error submitting your recipe.");
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("There was an error submitting your recipe.");
+      });
+  });
+
+});
+
