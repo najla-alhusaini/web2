@@ -284,3 +284,85 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Define the initial counts
+  let blockedUsersCount = 2;  // Example starting count
+  let pendingReportsCount = 2;  // Example starting count
+  
+  // Update user counts on page load
+  updateUserCounts();
+
+  // Function to update user counts dynamically
+  function updateUserCounts() {
+    document.getElementById("blocked-users-count").textContent = blockedUsersCount;
+    document.getElementById("pending-reports-count").textContent = pendingReportsCount;
+  }
+
+  // Add event listener for adding new blocked users 
+  document.getElementById("add-blocked-user-btn")?.addEventListener('click', () => {
+    
+    blockedUsersCount++;
+    updateUserCounts();
+    
+    addBlockedUserRow("New User", "new.user@email.com");
+  });
+
+  // Add event listener for adding new pending reports 
+  document.getElementById("add-pending-report-btn")?.addEventListener('click', () => {
+    
+    pendingReportsCount++;
+    updateUserCounts();
+    
+    addPendingReportRow("New Recipe", "New Creator");
+  });
+
+  // Function to add a row for blocked users
+  function addBlockedUserRow(name, email) {
+    const tableBody = document.querySelector(".blocked-users .admin-table tbody");
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+      <td>${name}</td>
+      <td>${email}</td>
+    `;
+    tableBody.appendChild(newRow);
+  }
+
+  // Function to add a row for pending reports
+  function addPendingReportRow(recipeName, creatorName) {
+    const tableBody = document.querySelector(".pending-reports .admin-table tbody");
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+      <td><a href="view_recipe.html">${recipeName}</a></td>
+      <td>
+        <div class="creator-info">
+          <img src="images/default-avatar.jpg" alt="${creatorName}'s Avatar" class="creator-avatar"> ${creatorName}
+        </div>
+      </td>
+      <td>
+        <select class="action-select">
+          <option>Select action</option>
+          <option>Block User</option>
+          <option>Dismiss Report</option>
+        </select>
+        <button class="action-btn">Apply</button>
+      </td>
+    `;
+    tableBody.appendChild(newRow);
+  }
+
+  // Simulating the 'Sign Out' functionality
+  document.querySelector('.sign-out-btn')?.addEventListener('click', () => {
+    window.location.href = "homepage.html";  // Redirect to homepage
+  });
+
+  // Function to dynamically update the admin info 
+  const adminInfo = {
+    name: "Steve",
+    email: "steve@healthybites.com"
+  };
+
+  // Update admin info
+  document.querySelector(".admin-info-text h2").textContent = Admin ${adminInfo.name};
+  document.querySelector(".admin-info-text p").textContent = adminInfo.email;
+});
