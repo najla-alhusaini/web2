@@ -6,13 +6,13 @@
     window.location.href = "Admin-Page.html";
   }
   //sadeem
-  // View Recipe Page JavaScript
+ // View Recipe Page JavaScript
 document.addEventListener('DOMContentLoaded', function() {
   
   // ===== INGREDIENTS CHECKBOXES =====
   const checkboxes = document.querySelectorAll('.ingredient-checkbox input');
-  checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', function() {
+  for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].addEventListener('change', function() {
       const label = this.nextElementSibling;
       
       if (this.checked) {
@@ -21,25 +21,25 @@ document.addEventListener('DOMContentLoaded', function() {
         label.style.backgroundColor = '';
       }
     });
-  });
+  }
   
   // ===== STAR RATING =====
   const stars = document.querySelectorAll('.star-rating .star');
   if (stars.length > 0) {
-    stars.forEach(star => {
-      star.addEventListener('click', function() {
+    for (let i = 0; i < stars.length; i++) {
+      stars[i].addEventListener('click', function() {
         const rating = this.getAttribute('data-rating');
         
         // Update all stars
-        stars.forEach((s, index) => {
-          if (index < rating) {
-            s.textContent = '⭐';
+        for (let j = 0; j < stars.length; j++) {
+          if (j < rating) {
+            stars[j].textContent = '⭐';
           } else {
-            s.textContent = '☆';
+            stars[j].textContent = '☆';
           }
-        });
+        }
       });
-    });
+    }
   }
   
   // ===== FAVORITE BUTTON =====
@@ -75,12 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add like
         likes++;
         isLiked = true;
-        likeCount.textContent = `(${likes})`;
+        likeCount.textContent = '(' + likes + ')';
       } else {
         // Remove like
         likes--;
         isLiked = false;
-        likeCount.textContent = `(${likes})`;
+        likeCount.textContent = '(' + likes + ')';
       }
     });
   }
@@ -121,31 +121,29 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // ===== TAGS =====
   const tags = document.querySelectorAll('.tag');
-  tags.forEach(tag => {
-    tag.addEventListener('click', function() {
+  for (let i = 0; i < tags.length; i++) {
+    tags[i].addEventListener('click', function() {
       alert('Tag clicked');
     });
-  });
+  }
   
-  // ===== EDIT RECIPE FUNCTIONALITY (only if elements exist) =====
+  // ===== EDIT RECIPE FUNCTIONALITY =====
   
-  // 1. إضافة مكون جديد (إذا كان الزر موجوداً)
+  // 1. Add new ingredient
   const addIngredientBtn = document.getElementById('addIngredientBtn');
   if (addIngredientBtn) {
     addIngredientBtn.addEventListener('click', function() {
       const ingredientsList = document.getElementById('ingredientsList');
       const ingredientRow = document.createElement('div');
       ingredientRow.className = 'item-row';
-      ingredientRow.innerHTML = `
-          <input type="text" class="item-name" placeholder="Ingredient name" required>
-          <input type="text" class="item-quantity" placeholder="Quantity" required>
-          <button type="button" class="remove-item-btn">X</button>
-      `;
+      ingredientRow.innerHTML = '<input type="text" class="item-name" placeholder="Ingredient name" required>' +
+                                '<input type="text" class="item-quantity" placeholder="Quantity" required>' +
+                                '<button type="button" class="remove-item-btn">X</button>';
       ingredientsList.appendChild(ingredientRow);
     });
   }
   
-  // 2. إضافة خطوة جديدة (إذا كان الزر موجوداً)
+  // 2. Add new instruction
   const addInstructionBtn = document.getElementById('addInstructionBtn');
   if (addInstructionBtn) {
     addInstructionBtn.addEventListener('click', function() {
@@ -155,37 +153,37 @@ document.addEventListener('DOMContentLoaded', function() {
       
       const instructionRow = document.createElement('div');
       instructionRow.className = 'instruction-row';
-      instructionRow.innerHTML = `
-          <div class="step-number">${stepNumber}</div>
-          <textarea class="instruction-step" placeholder="Instruction step" required></textarea>
-          <button type="button" class="remove-item-btn">X</button>
-      `;
+      instructionRow.innerHTML = '<div class="step-number">' + stepNumber + '</div>' +
+                                 '<textarea class="instruction-step" placeholder="Instruction step" required></textarea>' +
+                                 '<button type="button" class="remove-item-btn">X</button>';
       instructionsList.appendChild(instructionRow);
     });
   }
   
-  // 3. حذف عنصر (مكون أو خطوة)
+  // 3. Remove item (ingredient or step)
   document.addEventListener('click', function(e) {
     if (e.target.classList.contains('remove-item-btn')) {
-      const row = e.target.closest('.item-row, .instruction-row');
-      if (row) {
+      let row = e.target.parentNode;
+      
+      // Check if this is the correct row
+      if (row.classList.contains('item-row') || row.classList.contains('instruction-row')) {
         row.remove();
         
-        // تحديث أرقام الخطوات
+        // Update step numbers
         const instructionRows = document.querySelectorAll('#instructionsList .instruction-row');
         if (instructionRows.length > 0) {
-          instructionRows.forEach((row, index) => {
-            const stepNumber = row.querySelector('.step-number');
+          for (let i = 0; i < instructionRows.length; i++) {
+            const stepNumber = instructionRows[i].querySelector('.step-number');
             if (stepNumber) {
-              stepNumber.textContent = index + 1;
+              stepNumber.textContent = (i + 1);
             }
-          });
+          }
         }
       }
     }
   });
   
-  // 4. رفع صورة جديدة (إذا كان العنصر موجوداً)
+  // 4. Upload new image - simplified
   const uploadArea = document.getElementById('uploadArea');
   const recipeImage = document.getElementById('recipeImage');
   
@@ -198,59 +196,58 @@ document.addEventListener('DOMContentLoaded', function() {
       if (e.target.files && e.target.files[0]) {
         const file = e.target.files[0];
         
-        // التحقق من حجم الملف (5MB كحد أقصى)
+        // Check file size (max 5MB)
         if (file.size > 5 * 1024 * 1024) {
           alert('File size must be less than 5MB');
           return;
         }
         
-        // التحقق من نوع الملف
-        const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
-        if (!validTypes.includes(file.type)) {
+        // Check file type - simple way
+        if (file.type !== 'image/jpeg' && 
+            file.type !== 'image/png' && 
+            file.type !== 'image/gif') {
           alert('Only JPG, PNG and GIF files are allowed');
           return;
         }
         
-        const reader = new FileReader();
-        reader.onload = function(event) {
-          const currentImage = document.getElementById('currentImage');
-          if (currentImage) {
-            currentImage.src = event.target.result;
-          }
-        };
-        reader.readAsDataURL(file);
+        // Simple way to show image
+        const imageUrl = URL.createObjectURL(file);
+        const currentImage = document.getElementById('currentImage');
+        if (currentImage) {
+          currentImage.src = imageUrl;
+        }
       }
     });
   }
   
-  // 5. التحقق من صحة الفورم قبل الإرسال (إذا كان الفورم موجوداً)
+  // 5. Validate form before submit
   const editRecipeForm = document.getElementById('editRecipeForm');
   if (editRecipeForm) {
     editRecipeForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // التحقق من وجود مكونات على الأقل
+      // Check for at least one ingredient
       const ingredients = document.querySelectorAll('#ingredientsList .item-row');
       if (ingredients.length === 0) {
         alert('Please add at least one ingredient');
         return;
       }
       
-      // التحقق من وجود خطوات على الأقل
+      // Check for at least one instruction
       const instructions = document.querySelectorAll('#instructionsList .instruction-row');
       if (instructions.length === 0) {
         alert('Please add at least one instruction step');
         return;
       }
       
-      // التحقق من صحة اسم الوصفة
+      // Check recipe name
       const recipeName = document.getElementById('recipeName');
       if (recipeName && recipeName.value.trim().length < 3) {
         alert('Recipe name must be at least 3 characters long');
         return;
       }
       
-      // التحقق من صحة الفئة
+      // Check category
       const recipeCategory = document.getElementById('recipeCategory');
       if (recipeCategory && !recipeCategory.value) {
         alert('Please select a category');
@@ -263,18 +260,18 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.textContent = 'Saving...';
         submitBtn.disabled = true;
         
-        setTimeout(() => {
-          // عرض رسالة نجاح
+        setTimeout(function() {
+          // Show success message
           alert('Recipe updated successfully!');
           
-          // الرجوع لصفحة الوصفات
+          // Go back to recipes page
           window.location.href = 'my_recipes.html';
         }, 1500);
       }
     });
   }
   
-  // 6. زر الإلغاء
+  // 6. Cancel button
   const cancelBtn = document.querySelector('.cancel-btn');
   if (cancelBtn) {
     cancelBtn.addEventListener('click', function() {
