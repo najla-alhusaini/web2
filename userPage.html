@@ -3,8 +3,490 @@
 <head>
   <meta charset="UTF-8" />
   <title>User Page</title>
-  <link rel="stylesheet" href="userStyle.css" />
-  <!-- <link rel="stylesheet" href="user.css" /> -->
+  <style>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: rgba(143, 151, 115, 0.95); 
+  padding: 15px 40px;
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.logo-img {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img .logo-image {
+  width: 100px;
+  height: 50px;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.logo-img .logo-image:hover {
+  transform: scale(1.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.logo h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding-left: 10px;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: var(--white);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 0;
+  position: relative;
+  transition: var(--transition);
+  font-size: 0.95rem;
+}
+
+.nav-links a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--light-beige);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--light-beige);
+}
+
+.nav-links a:hover:after {
+  width: 100%;
+}
+
+.nav-links .user-icon {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.nav-links .user-icon:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+nav a.my-recipes-btn {
+  border: 2px solid white;
+  padding: 6px 18px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+nav a.my-recipes-btn:hover {
+  background: white;
+  color: #7a8360;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* ===== Footer ===== *//* ===== FOOTER ===== */
+footer {
+  background-color: rgba(143, 151, 115, 0.95); /* Same color as header */
+  color: var(--white);
+  margin-top: 80px;
+  padding: 50px 0 20px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footer-logo h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+.footer-logo p {
+  opacity: 0.8;
+  max-width: 300px;
+  color: var(--light-beige);
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.footer-column h4 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--light-beige);
+}
+
+.footer-column a {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: var(--transition);
+}
+
+.footer-column a:hover {
+  color: var(--light-beige);
+  transform: translateX(5px);
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.social-links a {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.newsletter p {
+  margin-bottom: 10px;
+  opacity: 0.8;
+  color: var(--light-beige);
+}
+
+.newsletter-input {
+  display: flex;
+}
+
+.newsletter-input input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  font-family: 'Arial', sans-serif;
+}
+
+.newsletter-input button {
+  background-color: var(--dark-green);
+  color: white;
+  border: none;
+  padding: 0 20px;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.newsletter-input button:hover {
+  background-color: #556b2f;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-bottom p {
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
+/* ================= USER PAGE ================= */
+.user-page {
+  background: linear-gradient(
+    180deg,
+    #f4f8f2 0%,
+    #eef5ea 50%,
+    #f8faf6 100%
+  );
+  min-height: 100vh;
+  padding: 70px 60px;
+}
+/* Welcome */
+.user-page h2 {
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: #6b7556;
+}
+
+/* ===== Top Section ===== */
+.user-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 35px;
+  margin-bottom: 70px;
+}
+
+/* User Info */
+.user-info {
+  background: white;
+  border-radius: 22px;
+  padding: 30px;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
+
+.user-info:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.user-info img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #f0c4cb;
+}
+
+.user-info p {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* Summary */
+.user-summary {
+  background: #7a8360;
+  border-radius: 22px;
+  padding: 30px;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
+
+.user-summary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.user-summary p {
+  font-size: 15px;
+  margin-top: 12px;
+}
+
+/* ===== Divider ===== */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c87d87, transparent);
+  margin: 70px 0 50px;
+}
+
+/* ===== Sections ===== */
+.user-section {
+  margin-bottom: 70px;
+}
+
+.user-section h3 {
+  font-size: 26px;
+  color: #6b7556;
+  margin-bottom: 20px;
+}
+
+/* ===== Filter ===== */
+.filter-box {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.filter-box select {
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid #dcb5ba;
+  background: rgba(255, 255, 255, 0.9);
+  color: #6b7556;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.filter-box select:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== Buttons ===== */
+.btn.secondary {
+  background: #7a8360;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(122, 131, 96, 0.25);
+}
+
+.btn.secondary:hover {
+  background: #6b7556;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(122, 131, 96, 0.35);
+}
+
+/* ===== Tables ===== */
+.user-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 18px;
+  transition: 0.3s ease;
+}
+
+.user-table th {
+  text-align: left;
+  font-size: 14px;
+  color: #6b7556;
+  padding-bottom: 10px;
+}
+
+.user-table td {
+  background: linear-gradient(
+    145deg,
+    rgba(251,234,214,0.6),
+    rgba(245,211,216,0.6),
+    rgba(232,240,209,0.6)
+  );
+  padding: 18px;
+  font-size: 14px;
+  backdrop-filter: blur(4px);
+  transition: 0.3s ease;
+}
+
+.user-table tr:hover td {
+  background-color: #fafafa;
+  transform: translateY(-2px);
+}
+
+.user-table tr td:first-child {
+  border-radius: 16px 0 0 16px;
+}
+
+.user-table tr td:last-child {
+  border-radius: 0 16px 16px 0;
+}
+
+/* Images */
+.user-table img {
+  width: 75px;
+  border-radius: 14px;
+}
+
+/* Creator */
+.creator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.creator img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+/* Links */
+.user-table a {
+  color: #b67b84;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.user-table a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #b67b84;
+  transition: width 0.3s ease;
+}
+
+.user-table a:hover::after {
+  width: 100%;
+}
+
+/* Sign out */
+.signout {
+  text-align: right;
+  margin-top: 40px;
+}
+</style>
 </head>
 <body>
 
@@ -13,7 +495,7 @@
   <header>
     <nav>
       <div class="logo-img">
-        <img src="images\logo.png" alt="Healthy Bites Logo" class="logo-image">
+        <img src="../images/logo.png" alt="Healthy Bites Logo" class="logo-image">
       </div>
       <div class="logo">
         <h2>Healthy Bites</h2>
@@ -39,7 +521,7 @@
 
       <!-- User Info -->
       <div class="user-info">
-        <img src="images\sara.jpg" alt="User Photo">
+        <img src="../images/sara.jpg" alt="User Photo">
         <div>
           <p><strong>First Name:</strong> Sara</p>
           <p><strong>Last Name:</strong> Ahmed</p>
@@ -84,10 +566,10 @@
         <tr>
           <td><a href="<a href="View-Recipe.html">
 Mediterranean Quinoa Salad</a></td>
-          <td><img src="images\mediterranean quinoa salad.jpg" alt=""></td>
+          <td><img src="../images/mediterranean quinoa salad.jpg" alt=""></td>
           <td>
             <div class="creator">
-              <img src="images\sara.jpg" alt="">
+              <img src="../images/sara.jpg" alt="">
               <span>Sara</span>
             </div>
           </td>
@@ -97,10 +579,10 @@ Mediterranean Quinoa Salad</a></td>
 
         <tr>
           <td><a href="view-recipe.html">Grilled Salmon with Herbs</a></td>
-          <td><img src="images\Grilled Salmon with Herbs.jpg" alt=""></td>
+          <td><img src="../images/Grilled Salmon with Herbs.jpg" alt=""></td>
           <td>
             <div class="creator">
-              <img src="images\emma.jpg" alt="">
+              <img src="../images/emma.jpg" alt="">
               <span>Noor</span>
             </div>
           </td>
@@ -124,7 +606,7 @@ Mediterranean Quinoa Salad</a></td>
 
         <tr>
           <td><a href="view-recipe.html">Vegetable Stir Fry</a></td>
-          <td><img src="images\Vegetable Stir Fry.jpg" alt=""></td>
+          <td><img src="../images/Vegetable Stir Fry.jpg" alt=""></td>
           <td><a href="userPage.html">Remove</a></td>
         </tr>
       </table>
@@ -211,7 +693,47 @@ Mediterranean Quinoa Salad</a></td>
     </div>
   </footer>
 
-<script src="user.js"></script>
+<script>
+  // ===== Filter Recipes by Category =====
+const filterBtn = document.querySelector(".filter-box button");
+const categorySelect = document.querySelector(".filter-box select");
+const recipeRows = document.querySelectorAll(".user-table tr");
+
+filterBtn.addEventListener("click", () => {
+  const selectedCategory = categorySelect.value.toLowerCase();
+
+  recipeRows.forEach((row, index) => {
+    // نتجاوز صف الهيدر
+    if (index === 0) return;
+
+    const categoryCell = row.cells[4]; // عمود التصنيف
+    const categoryText = categoryCell.textContent.toLowerCase();
+
+    if (
+      selectedCategory === "all categories" ||
+      categoryText === selectedCategory
+    ) {
+      row.style.display = "";
+    } else {
+      row.style.display = "none";
+    }
+  });
+});
+// ===== Remove from favourites (dummy action) =====
+const removeLinks = document.querySelectorAll(".user-section a[href='user.html']");
+
+removeLinks.forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    alert("Recipe removed from favourites (Phase 1 demo).");
+    window.location.href = "user.html";
+  });
+});
+
+</script>
 
 </body>
 </html>
+
+
+
