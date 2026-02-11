@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Page</title>
+  <link rel="stylesheet" href="userStyle.css" />
+  <!-- <link rel="stylesheet" href="user.css" /> -->
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+ <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo-img">
+        <img src="images\logo.png" alt="Healthy Bites Logo" class="logo-image">
+      </div>
+      <div class="logo">
+        <h2>Healthy Bites</h2>
+      </div>
+      <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="my_recipes.html">My Recipes</a>
+        <a href="add_recipe.html">Add Recipe</a>
+        <a href="user_page.html" class="user-icon">U</a>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- ===== User Page ===== -->
+  <main class="user-page">
+
+    <!-- Welcome -->
+    <h2>Welcome, Sara 🌿</h2>
+
+    <!-- ===== Top Section ===== -->
+    <div class="user-top">
+
+      <!-- User Info -->
+      <div class="user-info">
+        <img src="images\sara.jpg" alt="User Photo">
+        <div>
+          <p><strong>First Name:</strong> Sara</p>
+          <p><strong>Last Name:</strong> Ahmed</p>
+          <p><strong>Email:</strong> sara@email.com</p>
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <div class="user-summary">
+<a href="My-Recipes.html" class="my-recipes-btn">My Recipes</a>
+        <p>Total Recipes: <strong>4</strong></p>
+        <p>Total Likes: <strong>18</strong></p>
+      </div>
+
+    </div>
+<div class="section-divider"></div>
+
+    <!-- ===== All Recipes ===== -->
+    <section class="user-section">
+      <h3>All Recipes</h3>
+
+      <!-- Filter -->
+      <div class="filter-box">
+        <select>
+          <option>All Categories</option>
+          <option>mainDish</option>
+          <option>Salad</option>
+          <option>Dessert</option>
+        </select>
+        <button class="btn secondary">Filter</button>
+      </div>
+
+      <table class="user-table">
+        <tr>
+          <th>Recipe Name</th>
+          <th>Photo</th>
+          <th>Creator</th>
+          <th>Likes</th>
+          <th>Category</th>
+        </tr>
+
+        <tr>
+          <td><a href="<a href="View-Recipe.html">
+Mediterranean Quinoa Salad</a></td>
+          <td><img src="images\mediterranean quinoa salad.jpg" alt=""></td>
+          <td>
+            <div class="creator">
+              <img src="images\sara.jpg" alt="">
+              <span>Sara</span>
+            </div>
+          </td>
+          <td>10</td>
+          <td>Salad</td>
+        </tr>
+
+        <tr>
+          <td><a href="view-recipe.html">Grilled Salmon with Herbs</a></td>
+          <td><img src="images\Grilled Salmon with Herbs.jpg" alt=""></td>
+          <td>
+            <div class="creator">
+              <img src="images\emma.jpg" alt="">
+              <span>Noor</span>
+            </div>
+          </td>
+          <td>6</td>
+          <td>mainDish</td>
+        </tr>
+      </table>
+    </section>
+<div class="section-divider"></div>
+
+    <!-- ===== Favourite Recipes ===== -->
+    <section class="user-section">
+      <h3>Favourite Recipes</h3>
+
+      <table class="user-table">
+        <tr>
+          <th>Recipe Name</th>
+          <th>Photo</th>
+          <th>Action</th>
+        </tr>
+
+        <tr>
+          <td><a href="view-recipe.html">Vegetable Stir Fry</a></td>
+          <td><img src="images\Vegetable Stir Fry.jpg" alt=""></td>
+          <td><a href="userPage.html">Remove</a></td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Sign Out -->
+    <div class="signout">
+      <a href="home.html" class="btn secondary">Sign Out</a>
+    </div>
+
+  </main>
+
+   <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <div class="footer-logo-wrapper">
+          <span class="footer-logo-icon">🥗</span>
+          <h3>Healthy Bites</h3>
+        </div>
+        <p>Delicious recipes for a healthier lifestyle</p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4><span class="footer-icon">🔍</span> Explore</h4>
+          <a href="#"><span class="link-icon">📋</span> All Recipes</a>
+          <a href="#"><span class="link-icon">📁</span> Categories</a>
+          <a href="#"><span class="link-icon">🍂</span> Seasonal Picks</a>
+          <a href="#"><span class="link-icon">📅</span> Meal Plans</a>
+        </div>
+        
+        <div class="footer-column">
+          <h4><span class="footer-icon">👥</span> Community</h4>
+          <a href="#"><span class="link-icon">💬</span> Forums</a>
+          <a href="#"><span class="link-icon">🏆</span> Challenges</a>
+          <a href="#"><span class="link-icon">📝</span> Blog</a>
+          <a href="#"><span class="link-icon">⭐</span> Contributors</a>
+        </div>
+        
+        <div class="footer-column">
+          <h4><span class="footer-icon">🛟</span> Support</h4>
+          <a href="#"><span class="link-icon">❓</span> Help Center</a>
+          <a href="#"><span class="link-icon">📞</span> Contact Us</a>
+          <a href="#"><span class="link-icon">🔒</span> Privacy Policy</a>
+          <a href="#"><span class="link-icon">📄</span> Terms of Service</a>
+        </div>
+        
+        <div class="footer-column">
+          <h4><span class="footer-icon">📡</span> Connect</h4>
+          <div class="social-links">
+            <a href="#" class="social-link facebook" title="Facebook">
+              <span class="social-icon">📘</span>
+            </a>
+            <a href="#" class="social-link instagram" title="Instagram">
+              <span class="social-icon">📸</span>
+            </a>
+            <a href="#" class="social-link pinterest" title="Pinterest">
+              <span class="social-icon">📌</span>
+            </a>
+            <a href="#" class="social-link youtube" title="YouTube">
+              <span class="social-icon">📺</span>
+            </a>
+          </div>
+          <div class="newsletter">
+            <p><span class="newsletter-icon">✉️</span> Subscribe for weekly recipes</p>
+            <div class="newsletter-input">
+              <input type="email" placeholder="Your email address">
+              <button>
+                <span class="send-icon">🚀</span>
+                <span class="send-text">Subscribe</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2026 Healthy Bites | All rights reserved</p>
+      <p class="made-with-love">
+        <span class="heart-icon">❤️</span> Made with love for food lovers everywhere
+      </p>
+    </div>
+  </footer>
+
+<script src="user.js"></script>
+
+</body>
+</html>
