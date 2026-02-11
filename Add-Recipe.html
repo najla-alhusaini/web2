@@ -3,24 +3,734 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add A recipe | Healthy Bites</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <title>Add a Recipe | Healthy Bites</title>
+  <style>
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-green: #8f9773;
+  --dark-green: #6b7556;
+  --light-beige: #fbead6;
+  --champagne: #f0c4cb;
+  --pink: #c87d87;
+  --button-brown: #b07a7a;
+  --white: #ffffff;
+  --light-gray: #f8f8f8;
+  --medium-gray: #e8e8e8;
+  --dark-gray: #333333;
+  --accent: #b07a7a;
+  --error: #ff6b6b;
+  --success: #4CAF50;
+  --shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+  --transition: all 0.3s ease-in-out;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  background-image: url('backgroundPic.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+header {
+  background-color: rgba(143, 151, 115, 0.95);
+  padding: 15px 40px;
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.logo-img {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img .logo-image {
+  width: 100px;
+  height: 50px;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.logo-img .logo-image:hover {
+  transform: scale(1.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.logo h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding-left: 10px;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: var(--white);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 0;
+  position: relative;
+  transition: var(--transition);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-links a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--light-beige);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--light-beige);
+}
+
+.nav-links a:hover:after {
+  width: 100%;
+}
+
+.nav-icon {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* User Dropdown Styles */
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-dropdown .dropbtn {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.95rem;
+  position: relative;
+}
+
+.user-icon-symbol {
+  font-size: 1.3rem;
+  position: absolute;
+}
+
+.user-initials {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.user-dropdown:hover .user-initials {
+  opacity: 1;
+}
+
+.user-dropdown:hover .user-icon-symbol {
+  opacity: 0.3;
+}
+
+.user-dropdown .dropbtn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: rgba(143, 151, 115, 0.98);
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 101;
+  border-radius: 8px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 8px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.dropdown-content a {
+  color: var(--white);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--light-beige);
+}
+
+.dropdown-content a:after {
+  display: none;
+}
+
+.dropdown-icon {
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 5px 0;
+}
+
+.logout-btn {
+  color: #ff6b6b !important;
+  font-weight: 600 !important;
+}
+
+.logout-btn:hover {
+  background-color: rgba(255, 107, 107, 0.1) !important;
+}
+
+.user-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ===== MAIN CONTAINER ===== */
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+  flex: 1;
+}
+
+/* ===== EDIT RECIPE PAGE STYLES ===== */
+.edit-recipe-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.edit-recipe-header h1 {
+  color: var(--primary-green);
+  font-size: 2.2rem;
+  margin: 0;
+}
+
+.back-btn {
+  color: var(--primary-green);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 20px;
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  transition: var(--transition);
+  background-color: transparent;
+}
+
+.back-btn:hover {
+  background-color: var(--primary-green);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.recipe-form-container {
+  background-color: white;
+  border-radius: var(--radius);
+  padding: 40px;
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--dark-gray);
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: var(--transition);
+  background-color: var(--light-gray);
+  font-family: 'Arial', sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--primary-green);
+  background-color: white;
+  box-shadow: 0 0 10px rgba(107, 117, 86, 0.5);
+  outline: none;
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236b7556' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 12px;
+  padding-right: 40px;
+}
+
+.image-upload-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+
+.video-upload-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+
+
+.image-label {
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
+.upload-box {
+  width: 100%;
+  height: 200px;
+  border: 3px dashed #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: var(--light-gray);
+}
+
+.upload-box:hover {
+  border-color: var(--primary-green);
+  background-color: rgba(143, 151, 115, 0.05);
+}
+
+.upload-box p {
+  color: #666;
+  font-weight: 500;
+}
+
+.upload-hint {
+  font-size: 14px;
+  color: #888;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.form-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.add-item-btn {
+  background-color: var(--button-brown);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.add-item-btn:hover {
+  background-color: #9c6a6a;
+  transform: translateY(-2px);
+}
+
+.dynamic-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.item-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  gap: 15px;
+  align-items: center;
+}
+
+.item-name,
+.item-quantity {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.item-name:focus,
+.item-quantity:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 5px rgba(107, 117, 86, 0.3);
+}
+
+.instruction-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 15px;
+  align-items: start;
+}
+
+.step-number {
+  width: 35px;
+  height: 35px;
+  background-color: var(--button-brown);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 10px;
+}
+
+.instruction-step {
+  min-height: 80px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  resize: vertical;
+  transition: var(--transition);
+  font-family: 'Arial', sans-serif;
+}
+
+.instruction-step:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 5px rgba(107, 117, 86, 0.3);
+}
+
+.remove-item-btn {
+  width: 35px;
+  height: 35px;
+  background-color: #ffebee;
+  color: var(--error);
+  border: 1px solid #ffcdd2;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  flex-shrink: 0;
+  border: none;
+  font-weight: bold;
+}
+
+.remove-item-btn:hover {
+  background-color: #ffcdd2;
+  transform: scale(1.1);
+}
+
+.form-hint {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid var(--medium-gray);
+}
+
+.cancel-btn,
+.submit-btn {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cancel-btn {
+  background-color: var(--light-gray);
+  color: #666;
+  border: 2px solid #ccc;
+}
+
+.cancel-btn:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.submit-btn {
+  background-color: var(--button-brown);
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: #9c6a6a;
+  transform: translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: rgba(143, 151, 115, 0.95); /* Same color as header */
+  color: var(--white);
+  margin-top: 80px;
+  padding: 50px 0 20px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footer-logo h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+.footer-logo p {
+  opacity: 0.8;
+  max-width: 300px;
+  color: var(--light-beige);
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.footer-column h4 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--light-beige);
+}
+
+.footer-column a {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: var(--transition);
+}
+
+.footer-column a:hover {
+  color: var(--light-beige);
+  transform: translateX(5px);
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.social-links a {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.newsletter p {
+  margin-bottom: 10px;
+  opacity: 0.8;
+  color: var(--light-beige);
+}
+
+.newsletter-input {
+  display: flex;
+}
+
+.newsletter-input input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  font-family: 'Arial', sans-serif;
+}
+
+.newsletter-input button {
+  background-color: var(--dark-green);
+  color: white;
+  border: none;
+  padding: 0 20px;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.newsletter-input button:hover {
+  background-color: #556b2f;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-bottom p {
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+  
+  
+  }
+}
+  </style>
+  </head>
 <body>
-  <!-- Header -->
+ <!-- Header -->
   <header>
     <nav>
       <div class="logo-img">
-        <img src="images\logo.png" alt="Healthy Bites Logo" class="logo-image">
+        <img src="images/logo.png" alt="Healthy Bites Logo" class="logo-image">
       </div>
       <div class="logo">
         <h2>Healthy Bites</h2>
       </div>
-      <div class="nav-links">
-        <a href="home.html">Home</a>
-        <a href="my_recipes.html">My Recipes</a>
-        <a href="add_recipe.html">Add Recipe</a>
-        <a href="user_page.html" class="user-icon">U</a>
+      <div class="nav-links"><a href="home.html">
+          <span class="nav-icon">🏠</span> Home
+        </a>
+        <a href="My-Recipes.html">
+          <span class="nav-icon">📖</span> My Recipes
+        </a>
+        <a href="Add-Recipe.html">
+          <span class="nav-icon">➕</span> Add Recipe
+        </a>
+        <div class="user-dropdown">
+          <button class="user-icon dropbtn">
+            <span class="user-icon-symbol">👤</span>
+            <span class="user-initials"></span>
+          </button>
+          <div class="dropdown-content">
+            <a href="user-page.html">
+              <span class="dropdown-icon">👨‍💼</span> User Page
+            </a>
+            <a href="Admin-Page.html">
+              <span class="dropdown-icon">⚙️</span> Admin Page
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="logout-btn">
+              <span class="dropdown-icon">🚪</span> Log Out
+            </a>
+          </div>
+        </div>
       </div>
     </nav>
   </header>
@@ -28,8 +738,8 @@
   <!-- Main Content -->
   <main class="container">
     <div class="edit-recipe-header">
-      <h1>Add A Recipe</h1>
-      <a href="my_recipes.html" class="back-btn">← Back to My Recipes</a>
+      <h1>Add a Recipe</h1>
+      <a href="My-Recipes.html" class="back-btn">← Back to My Recipes</a>
     </div>
 
     <div class="recipe-form-container">
@@ -37,15 +747,15 @@
         <!-- Recipe Name -->
         <div class="form-group">
           <label for="recipeName">Recipe Name</label>
-          <input type="text" id="recipeName" name="recipeName" value="Enter recipe Name" required>
+          <input type="text" id="recipeName" name="recipeName" placeholder="Enter recipe name:" required>
         </div>
 
         <!-- Recipe Category -->
         <div class="form-group">
           <label for="recipeCategory">Category</label>
           <select id="recipeCategory" name="recipeCategory" required>
-            <option value=""selected>Select Category</option>
-            <option value="salad" >Salad</option>
+            <option value="">Select Category</option>
+            <option value="salad">Salad</option>
             <option value="dessert">Dessert</option>
             <option value="main">Main Course</option>
             <option value="appetizer">Appetizer</option>
@@ -57,26 +767,24 @@
         <!-- Recipe Description -->
         <div class="form-group">
           <label for="recipeDescription">Description</label>
-          <textarea id="recipeDescription" name="recipeDescription" rows="4" required>Describe your recipe...</textarea>
+          <textarea id="recipeDescription" name="recipeDescription" rows="4" placeholder="Enter recipe description..." required></textarea>
         </div>
 
-        <!-- Recipe Photo -->
-        <div class="form-group">
-          <label>Recipe Photo</label>
-          <div class="image-upload-container">
-            <div class="current-image">
-              <img src="" alt="" id="Image-Placeholder">
-              <p class="image-label">Add Photo</p>
-            </div>
-            <div class="upload-new">
-              <div class="upload-box" id="uploadArea">
-                <p>Click to upload new photo</p>
-                <input type="file" id="recipeImage" name="recipeImage" accept="image/*" style="display: none;">
-              </div>
-              <p class="upload-hint">Upload JPG, PNG or GIF (Max 5MB)</p>
-            </div>
-          </div>
-        </div>
+     <!-- Image Preview Container -->
+<div class="form-group">
+  <label>Recipe Photo</label>
+  <div class="image-upload-container">
+    <div class="upload-new">
+      <div class="upload-box" id="uploadArea" onclick="document.getElementById('recipeImage').click();">
+        <p>Click to upload new photo</p>
+        <input type="file" id="recipeImage" name="recipeImage" accept="image/*" style="display: none;" required>
+      </div>
+      <p class="upload-hint">Upload JPG, PNG or GIF (Max 5MB)</p>
+    </div>
+  </div>
+  
+</div>
+
 
         <!-- Ingredients Section -->
         <div class="form-group">
@@ -86,11 +794,10 @@
           </div>
           <div class="dynamic-items-list" id="ingredientsList">
             <div class="item-row">
-              <input type="text" class="item-name" placeholder="Ingredient name" value="Enter Ingredient" required>
-              <input type="text" class="item-quantity" placeholder="Quantity" value="Add Quantity" required>
+              <input type="text" class="item-name" placeholder="Enter ingredient name" required>
+              <input type="text" class="item-quantity" placeholder="Enter quantity" required>
               <button type="button" class="remove-item-btn">X</button>
             </div>
-         
           </div>
         </div>
 
@@ -103,7 +810,7 @@
           <div class="dynamic-items-list" id="instructionsList">
             <div class="instruction-row">
               <div class="step-number">1</div>
-              <textarea class="instruction-step" placeholder="Instruction step" required>Explain The Step Here.</textarea>
+              <textarea class="instruction-step" placeholder="Enter instruction step" required></textarea>
               <button type="button" class="remove-item-btn">X</button>
             </div>
           </div>
@@ -112,20 +819,36 @@
         <!-- Video URL -->
         <div class="form-group">
           <label for="recipeVideo">Video URL (Optional)</label>
-		  <input type="url" id="recipeVideo" name="recipeVideo" placeholder="YouTube URL">
-          <p class="form-hint">Add a link to a YouTube video or any other video platform.</p>
+          <input type="url" id="recipeVideo" name="recipeVideo" placeholder="https://youtube.com/watch?v=..." value="">
         </div>
+		
+		
+       <!-- Video Preview Container -->
+<div class="form-group">
+  <label>Recipe Video</label>
+  <div class="video-upload-container">
+    <div class="upload-new">
+      <div class="upload-box" id="videoUploadArea" onclick="document.getElementById('recipeVideoUpload').click();">
+        <p>Click to upload Video</p>
+        <input type="file" id="recipeVideoUpload" name="recipeVideoUpload" accept="video/*" style="display: none;" >
+      </div>
+      <p class="upload-hint">Upload Video</p>
+    </div>
+  </div>
+ 
+</div>
+
 
         <!-- Form Actions -->
-        <div class="form-actions">
-          <button type="button" class="cancel-btn" onclick="window.location.href='my_recipes.html'">Cancel</button>
-          <button type="submit" class="submit-btn">Save Changes</button>
+		 <div class="form-actions">
+          <button type="button" class="cancel-btn" onclick="window.location.href='home.html'">Cancel</button>
+          <button type="submit" class="submit-btn">Save Recipe</button>
         </div>
       </form>
     </div>
   </main>
 
-   <!-- Footer -->
+ <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-logo">
@@ -158,7 +881,7 @@
           <a href="#"><span class="link-icon">❓</span> Help Center</a>
           <a href="#"><span class="link-icon">📞</span> Contact Us</a>
           <a href="#"><span class="link-icon">🔒</span> Privacy Policy</a>
-          <a href="#"><span class="link-icon">📄</span> Terms of Service</a>
+		  <a href="#"><span class="link-icon">📄</span> Terms of Service</a>
         </div>
         
         <div class="footer-column">
@@ -199,6 +922,95 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const form = document.getElementById('editRecipeForm');
+    const saveButton = document.getElementById('saveRecipeBtn');
+
+  // Function to validate the form and enable the "Save Recipe" button
+function validateForm() {
+  const recipeName = document.getElementById('recipeName').value;
+  const recipeCategory = document.getElementById('recipeCategory').value;
+  const recipeDescription = document.getElementById('recipeDescription').value;
+  const recipeImage = document.getElementById('recipeImage').files[0];
+  const recipeVideo = document.getElementById('recipeVideo').value;
+  const recipeVideoUpload = document.getElementById('recipeVideoUpload').files[0];
+  const ingredients = document.querySelectorAll('.item-name');
+  const instructions = document.querySelectorAll('.instruction-step');
+
+  let isValid = true;
+  let errorMessage = '';
+
+  // Validate recipe name
+  if (recipeName.length === 0 || recipeName.length > 75) {
+    errorMessage = "Recipe name should be no less than 1 character and no more than 75 characters.";
+    isValid = false;
+  }
+
+  // Validate category
+  if (recipeCategory === "") {
+    errorMessage = "Please select a recipe category.";
+    isValid = false;
+  }
+
+  // Validate description
+  if (recipeDescription.length === 0 || recipeDescription.length > 150) {
+    errorMessage = "Description should be no less than 1 character and no more than 150 characters.";
+    isValid = false;
+  }
+
+  // Validate photo upload
+  if (!recipeImage  (recipeImage && !['image/jpeg', 'image/png', 'image/gif'].includes(recipeImage.type))  recipeImage.size > 5 * 1024 * 1024) {
+    errorMessage = "Please upload a valid photo (JPG, PNG, GIF) not exceeding 5MB.";
+    isValid = false;
+  }
+
+  // Validate ingredients
+  let allIngredientsFilled = Array.from(ingredients).every(input => input.value !== "");
+  if (!allIngredientsFilled) {
+    errorMessage = "Please fill in all ingredients.";
+    isValid = false;
+  }
+
+  // Validate instructions
+  let allInstructionsFilled = Array.from(instructions).every(textarea => textarea.value !== "");
+  if (!allInstructionsFilled) {
+    errorMessage = "Please fill in all instruction steps.";
+    isValid = false;
+  }
+
+  // Video URL and Video Upload are optional: No validation needed
+  // No error message will be shown for video fields being empty
+
+  // Enable/Disable Save button
+  saveButton.disabled = !isValid;
+  if (!isValid) {
+    alert(errorMessage);  // Show error message if validation fails
+  }
+}
+// Form submission handler
+form.addEventListener('submit', function(event) {
+  event.preventDefault();  // Prevent default form submission
+
+  // Perform the final validation before submitting
+  if (!saveButton.disabled) {
+    // Display a success message
+    alert("Recipe saved successfully!");
+
+    // Simulate form submission and redirect
+    setTimeout(function() {
+      // Ensure the browser navigates to the 'My Recipes' page
+      window.location.replace('My-Recipes.html');  // This will replace the current page and redirect
+    }, 500);  // Small delay for user to see the success message
+  }
+})
+
+// Listen for changes to the form fields and validate whenever something is changed
+form.addEventListener('input', validateForm);
+form.addEventListener('change', validateForm);
+
+
+
+
+  </script>
 </body>
 </html>
