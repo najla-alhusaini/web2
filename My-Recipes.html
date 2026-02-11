@@ -74,6 +74,8 @@
 
         .recipe-title {
             font-weight: bold;
+			 font-size: 24px; 
+    
         }
 
         .recipe-tag {
@@ -111,22 +113,45 @@
 </head>
 <body>
 
-<!-- ===== Header ===== -->
-<header class="header">
-  <div class="logo">
-    <img src="images/logo.png" alt="Logo">
-  </div>
-
+ <!-- Header -->
+<header>
   <nav>
-    <a href="home.html" class="active">log out</a>
-    
-     <a href="user-page.html">User Page</a>
-    <a href="My-Recipes.html">My Recipes</a>
-    <a href="Add-Recipe.html">Add Recipe</a>
-    <a href="Admin-Page.html">Admin Page</a>
+    <div class="logo-img">
+      <img src="images\logo.png" alt="Healthy Bites Logo" class="logo-image">
+    </div>
+    <div class="logo">
+      <h2>Healthy Bites</h2>
+    </div>
+    <div class="nav-links">
+      <a href="home.html">
+        <span class="nav-icon">🏠</span> Home
+      </a>
+      <a href="My-Recipes.html">
+        <span class="nav-icon">📖</span> My Recipes
+      </a>
+      <a href="Add_Recipe.html">
+        <span class="nav-icon">➕</span> Add Recipe
+      </a>
+      <div class="user-dropdown">
+        <button class="user-icon dropbtn">
+          <span class="user-icon-symbol">👤</span>
+        </button>
+        <div class="dropdown-content">
+          <a href="user-page.html">
+            <span class="dropdown-icon">👨‍💼</span> User Page
+          </a>
+          <a href="Admin-page.html">
+            <span class="dropdown-icon">⚙️</span> Admin Page
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="logout-btn">
+            <span class="dropdown-icon">🚪</span> Log Out
+          </a>
+        </div>
+      </div>
+    </div>
   </nav>
 </header>
-
 
  
 
@@ -310,11 +335,79 @@
 
 
 
-<!-- ===== Footer ===== -->
-<footer class="footer">
-  <img src="images/logo.png" alt="Logo">
-  <p>© 2026 HealthyBites Recipe Sharing System</p>
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">
+      <div class="footer-logo-wrapper">
+        <span class="footer-logo-icon">🥗</span>
+        <h3>Healthy Bites</h3>
+      </div>
+      <p>Delicious recipes for a healthier lifestyle</p>
+    </div>
+    
+    <div class="footer-links">
+      <div class="footer-column">
+        <h4><span class="footer-icon">🔍</span> Explore</h4>
+        <a href="#"><span class="link-icon">📋</span> All Recipes</a>
+        <a href="#"><span class="link-icon">📁</span> Categories</a>
+        <a href="#"><span class="link-icon">🍂</span> Seasonal Picks</a>
+        <a href="#"><span class="link-icon">📅</span> Meal Plans</a>
+      </div>
+      
+      <div class="footer-column">
+        <h4><span class="footer-icon">👥</span> Community</h4>
+        <a href="#"><span class="link-icon">💬</span> Forums</a>
+        <a href="#"><span class="link-icon">🏆</span> Challenges</a>
+        <a href="#"><span class="link-icon">📝</span> Blog</a>
+        <a href="#"><span class="link-icon">⭐</span> Contributors</a>
+      </div>
+      
+      <div class="footer-column">
+        <h4><span class="footer-icon">🛟</span> Support</h4>
+        <a href="#"><span class="link-icon">❓</span> Help Center</a>
+        <a href="#"><span class="link-icon">📞</span> Contact Us</a>
+        <a href="#"><span class="link-icon">🔒</span> Privacy Policy</a>
+        <a href="#"><span class="link-icon">📄</span> Terms of Service</a>
+      </div>
+      
+      <div class="footer-column">
+        <h4><span class="footer-icon">📡</span> Connect</h4>
+        <div class="social-links">
+          <a href="#" class="social-link facebook" title="Facebook">
+            <span class="social-icon">📘</span>
+          </a>
+          <a href="#" class="social-link instagram" title="Instagram">
+            <span class="social-icon">📸</span>
+          </a>
+          <a href="#" class="social-link pinterest" title="Pinterest">
+            <span class="social-icon">📌</span>
+          </a>
+          <a href="#" class="social-link youtube" title="YouTube">
+            <span class="social-icon">📺</span>
+          </a>
+        </div>
+        <div class="newsletter">
+          <p><span class="newsletter-icon">✉️</span> Subscribe for weekly recipes</p>
+          <div class="newsletter-input">
+            <input type="email" placeholder="Your email address">
+            <button>
+              <span class="send-icon">🚀</span>
+              <span class="send-text">Subscribe</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2026 Healthy Bites | All rights reserved</p>
+    <p class="made-with-love">
+      <span class="heart-icon">❤️</span> Made with love for food lovers everywhere
+    </p>
+  </div>
 </footer>
-
+ <script src="edit_recipe.js"></script>
 </body>
 </html>
