@@ -4,160 +4,160 @@
   <meta charset="UTF-8">
   <title>HealthyBites | My Recipes</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f7f9f8;
-            margin: 40px;
-            color: #333;
-        }
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f7f9f8;
+        color: #333;
+    }
 
-        .page-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
+    .page-container {
+        padding: 40px;
+    }
 
-        .page-header h1 {
-            margin: 0;
-        }
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
 
-        .page-header p {
-            margin: 5px 0 0;
-            color: #666;
-        }
+    .page-header h1 {
+        margin: 0;
+    }
 
-        .add-btn {
-            background-color: #2fa44f;
-            color: white;
-            padding: 12px 18px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-        }
+    .page-header p {
+        margin: 5px 0 0;
+        color: #666;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+    .add-btn {
+        background-color: #2fa44f;
+        color: white;
+        padding: 12px 18px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+    }
 
-        th {
-            text-align: left;
-            padding: 15px;
-            background-color: #f1f3f2;
-            font-weight: bold;
-            color: #666;
-        }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+    }
 
-        td {
-            padding: 20px;
-            vertical-align: top;
-            border-top: 1px solid #eee;
-        }
+    th {
+        text-align: left;
+        padding: 15px;
+        background-color: #f1f3f2;
+        font-weight: bold;
+        color: #666;
+    }
 
-        .recipe-cell {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
+    td {
+        padding: 20px;
+        vertical-align: top;
+        border-top: 1px solid #eee;
+    }
 
-        .recipe-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
-            background-color: #ddd; /* placeholder */
-        }
+    .recipe-cell {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
 
-        .recipe-title {
-            font-weight: bold;
-			 font-size: 24px; 
-    
-        }
+    .recipe-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        background-color: #ddd;
+    }
 
-        .recipe-tag {
-            color: #2fa44f;
-            font-size: 14px;
-        }
+    .recipe-title {
+        font-weight: bold;
+        font-size: 14px;
+    }
 
-        ul {
-            padding-left: 18px;
-            margin: 0;
-        }
+    .recipe-tag {
+        color: #2fa44f;
+        font-size: 13px;
+    }
 
-        ol {
-            padding-left: 18px;
-            margin: 0;
-        }
+    ul, ol {
+        padding-left: 18px;
+        margin: 0;
+    }
 
-        .more {
-            color: #999;
-            font-size: 14px;
-            margin-top: 5px;
-        }
+    .more {
+        color: #999;
+        font-size: 13px;
+        margin-top: 5px;
+    }
 
-        .video-link {
-            color: #2fa44f;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .video-link {
+        color: #2fa44f;
+        text-decoration: none;
+        font-weight: bold;
+    }
 
-        .likes {
-            color: #d9534f;
-            font-weight: bold;
-        }
-    </style>
+    .likes {
+        color: #d9534f;
+        font-weight: bold;
+    }
+</style>
+
 </head>
 <body>
 
  <!-- Header -->
-<header>
-  <nav>
-    <div class="logo-img">
-      <img src="images\logo.png" alt="Healthy Bites Logo" class="logo-image">
-    </div>
-    <div class="logo">
-      <h2>Healthy Bites</h2>
-    </div>
-    <div class="nav-links">
-      <a href="home.html">
-        <span class="nav-icon">🏠</span> Home
-      </a>
-      <a href="My-Recipes.html">
-        <span class="nav-icon">📖</span> My Recipes
-      </a>
-      <a href="Add-Recipe.html">
-        <span class="nav-icon">➕</span> Add Recipe
-      </a>
-      <div class="user-dropdown">
-        <button class="user-icon dropbtn">
-          <span class="user-icon-symbol">👤</span>
-        </button>
-        <div class="dropdown-content">
-          <a href="user-page.html">
-            <span class="dropdown-icon">👨‍💼</span> User Page
-          </a>
-          <a href="Admin-page.html">
-            <span class="dropdown-icon">⚙️</span> Admin Page
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="logout-btn">
-            <span class="dropdown-icon">🚪</span> Log Out
-          </a>
+  <header>
+    <nav>
+      <div class="logo-img">
+        <img src="images/logo.png" alt="Healthy Bites Logo" class="logo-image">
+      </div>
+      <div class="logo">
+        <h2>Healthy Bites</h2>
+      </div>
+      <div class="nav-links"><a href="home.html">
+          <span class="nav-icon">🏠</span> Home
+        </a>
+        <a href="My-Recipes.html">
+          <span class="nav-icon">📖</span> My Recipes
+        </a>
+        <a href="Add-Recipe.html">
+          <span class="nav-icon">➕</span> Add Recipe
+        </a>
+        <div class="user-dropdown">
+          <button class="user-icon dropbtn">
+            <span class="user-icon-symbol">👤</span>
+            <span class="user-initials"></span>
+          </button>
+          <div class="dropdown-content">
+            <a href="userPage.html">
+              <span class="dropdown-icon">👨‍💼</span> User Page
+            </a>
+            <a href="Admin-Page.html">
+              <span class="dropdown-icon">⚙️</span> Admin Page
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="home.html" class="logout-btn">
+              <span class="dropdown-icon">🚪</span> Log Out
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-</header>
-
+    </nav>
+  </header>
  
 
 
 
     <!-- Page Title -->
+	<div class="page-container">
+
     <div class="page-header">
         <div>
             <h1>My Recipes</h1>
@@ -407,7 +407,9 @@
       <span class="heart-icon">❤️</span> Made with love for food lovers everywhere
     </p>
   </div>
+  </div>
+  
 </footer>
- <script src="edit-recipe.js"></script>
+ <script src="edit_recipe.js"></script>
 </body>
 </html>
